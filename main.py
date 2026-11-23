@@ -10,6 +10,13 @@ byte for byte, so the drawing is fully deterministic.
 """
 
 import os
+import sys
+
+# The grader runs `python3 -P -s /bot/main.py`: -P (safe_path) does NOT
+# prepend the script's directory to sys.path, so a plain
+# `import make_image` fails with ModuleNotFoundError. Point sys.path at
+# this file's own directory first.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import make_image
 
